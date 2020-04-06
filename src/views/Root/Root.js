@@ -1,66 +1,25 @@
-import React from "react";
-import "./index.css";
-import AppContext from "../../context";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import TwittersView from "../TwittersView/TwittersView";
-import ArticlesView from "../ArticlesView/ArticlesView";
-import NotesView from "../NotesView/NotesView";
-import Header from "../../components/Header/Header";
-import Modal from "../../components/Modal/Modal";
+import React from 'react';
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ShoppingList from '../shoppingList/ShoppingList';
+import AddItemButton from '../../components/button/AddItemButton';
+import EditStores from '../editStores/EditStores';
+import AddItem from '../addItem/AddItem';
 
-class Root extends React.Component {
-  state = {
-    twitter: [
-      
-    ],
-    article: [],
-    note: [],
-    isModalOpen: false,
-  };
-
-  addItem = (e, newItem) => {
-    e.preventDefault();
-
-    this.setState((prevState) => ({
-      [newItem.type]: [...prevState[newItem.type], newItem],
-    }));
-
-    this.closeModal();
-  };
-
-  openModal = () => {
-    this.setState({
-      isModalOpen: true,
-    });
-  };
-
-  closeModal = () => {
-    this.setState({
-      isModalOpen: false,
-    });
-  };
-
-  render() {
-    const { isModalOpen } = this.state;
-    const contextElements = {
-      ...this.state,
-      addItem: this.addItem,
-    };
-
-    return (
-      <BrowserRouter>
-        <AppContext.Provider value={contextElements}>
-          <Header openModalFn={this.openModal} />
-          <Switch>
-            <Route exact path="/" component={TwittersView} />
-            <Route path="/articles" component={ArticlesView} />
-            <Route path="/notes" component={NotesView} />
-          </Switch>
-          {isModalOpen && <Modal closeModalFn={this.closeModal} />}
-        </AppContext.Provider>
-      </BrowserRouter>
-    );
-  }
-}
+const Root = () => (
+  <div className="container">
+    <div className="row">
+      <div className="col-10 mx-auto col-md-8 mt-4">
+        <h1 className="text-capitalize text-center">Hello</h1>
+        <ShoppingList />
+        <EditStores />
+        <AddItem
+    
+        />
+        <AddItemButton />
+      </div>
+    </div>
+  </div>
+);
 
 export default Root;
