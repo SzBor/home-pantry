@@ -43,6 +43,25 @@ class Root extends React.Component {
       editItem: false,
     });
   };
+  handleDelete = (id) => {
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+
+    this.setState({
+      items: filteredItems,
+    });
+  };
+
+  handleEdit = (id) => {
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+    const selectedItem = this.state.items.find((item) => item.id === id);
+    this.setState({
+      items: filteredItems,
+      itemName: selectedItem.title,
+      quantity: selectedItem.quantity,
+      minAmount: selectedItem.minAmount,
+      editItem: true,
+    });
+  };
   render() {
     return (
       <div className="container">
@@ -57,7 +76,11 @@ class Root extends React.Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <Store items={this.state.items} />
+            <Store
+              items={this.state.items}
+              handleDelete={this.handleDelete}
+              handleEdit={this.handleEdit}
+            />
             <AddItemButton />
           </div>
         </div>
