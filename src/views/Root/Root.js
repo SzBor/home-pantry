@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Store from '../Store/Store';
 import AddItem from '../addItem/AddItem';
 import uuid from 'react-uuid';
+import Navigation from '../../components/navigation/Navigation';
 
 class Root extends React.Component {
   state = {
@@ -58,32 +59,34 @@ class Root extends React.Component {
       quantity: selectedItem.quantity,
       minAmount: selectedItem.minAmount,
       editItem: true,
-      id:id
+      id: id,
     });
   };
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-10 mx-auto col-md-8 mt-4">
-            <h1 className="text-capitalize text-center">Your Home Pantry App</h1>
-            <Store
-              items={this.state.items}
-              handleDelete={this.handleDelete}
-              handleEdit={this.handleEdit}
-            />
-            <AddItem
-              itemName={this.state.itemName}
-              quantity={this.state.quantity}
-              minAmount={this.state.minAmount}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-            />
-           
-   
+      <>
+        <Navigation />
+        <div className="container">
+          <div className="row">
+            <div className="col-10 mx-auto col-md-8 mt-4">
+            
+              <Store
+                items={this.state.items}
+                handleDelete={this.handleDelete}
+                handleEdit={this.handleEdit}
+              />
+              <AddItem
+                itemName={this.state.itemName}
+                quantity={this.state.quantity}
+                minAmount={this.state.minAmount}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                editItem={this.state.editItem}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

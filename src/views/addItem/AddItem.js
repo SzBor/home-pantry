@@ -1,22 +1,18 @@
 import React from 'react';
 
-import ItemButton from '../../components/button/ItemButton';
-
 const AddItem = (props) => {
-  const { itemName, quantity, minAmount, handleChange, handleSubmit } = props;
+  const { itemName, quantity, minAmount, handleChange, handleSubmit, editItem } = props;
 
   return (
     <div className="card card-body my-3">
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-       
-         
           <div className="input-group-prepend">
             <div className="input-group-text bg-warning text-black">
               <i className="fas fa-utensils" />
             </div>
           </div>
-       
+
           <input
             type="text"
             name="itemName"
@@ -25,7 +21,7 @@ const AddItem = (props) => {
             value={itemName}
             onChange={handleChange}
           />
-       
+
           <input
             type="number"
             name="quantity"
@@ -45,7 +41,16 @@ const AddItem = (props) => {
             onChange={handleChange}
           />
         </div>
-        <ItemButton>Add Item</ItemButton>
+        <button
+          type="submit"
+          variant="warning"
+          size="sm"
+          className={
+            editItem ? 'btn btn-block btn-secondary mt-3' : 'btn btn-block btn-warning mt-3'
+          }
+        >
+          {editItem ? 'Edit item' : 'Add Item'}
+        </button>
       </form>
     </div>
   );
