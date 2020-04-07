@@ -67,8 +67,12 @@ class Root extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-10 mx-auto col-md-8 mt-4">
-            <h1 className="text-capitalize text-center">Hello</h1>
-            <ShoppingList />
+            <h1 className="text-capitalize text-center">Your Home Pantry App</h1>
+            <Store
+              items={this.state.items}
+              handleDelete={this.handleDelete}
+              handleEdit={this.handleEdit}
+            />
             <AddItem
               itemName={this.state.itemName}
               quantity={this.state.quantity}
@@ -76,12 +80,8 @@ class Root extends React.Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-            <Store
-              items={this.state.items}
-              handleDelete={this.handleDelete}
-              handleEdit={this.handleEdit}
-            />
-            <AddItemButton />
+           
+   
           </div>
         </div>
       </div>
