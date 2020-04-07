@@ -11,14 +11,14 @@ const Navigation = () => (
       </NavLink>
     </Navbar.Brand>
 
-    <Nav className="mr-auto">
+    <Nav className="mr-auto flex-row">
       <Nav.Link>
         <NavLink exact className="navbar-link" to="/" activeClassName="navbar-link-active">
           Home
         </NavLink>
       </Nav.Link>
       <Nav.Link>
-        <NavLink exact className="navbar-link" to="/shoppinglist" activeClassName="navbar-link-active">
+        <NavLink exact className="navbar-link ml-2" to="/shoppinglist" activeClassName="navbar-link-active">
           Shopping List
         </NavLink>
       </Nav.Link>
