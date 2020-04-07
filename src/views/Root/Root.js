@@ -11,7 +11,13 @@ import uuid from 'react-uuid';
 
 class Root extends React.Component {
   state = {
-    items: [],
+    items: [{
+      id: uuid(),
+      itemName: 'banan',
+      quantity: '10',
+      minAmount: '1',
+      editItem: false,
+    }],
   };
 
   handleChange = (e) => {
@@ -26,7 +32,7 @@ class Root extends React.Component {
 
     const newItem = {
       id: this.state.id,
-      title: this.state.itemName,
+      itemName: this.state.itemName,
       quantity: this.state.quantity,
       minAmount: this.state.minAmount,
     };
@@ -56,7 +62,7 @@ class Root extends React.Component {
     const selectedItem = this.state.items.find((item) => item.id === id);
     this.setState({
       items: filteredItems,
-      itemName: selectedItem.title,
+      itemName: selectedItem.itemName,
       quantity: selectedItem.quantity,
       minAmount: selectedItem.minAmount,
       editItem: true,

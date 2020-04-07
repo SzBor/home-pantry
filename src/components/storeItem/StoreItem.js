@@ -2,13 +2,13 @@ import React from 'react';
 import './StoreItem.css';
 
 const StoreItem = (props) => {
-  const { title, quantity, minAmount, handleDelete, handleEdit } = props;
+  const { itemName, quantity, minAmount, handleDelete, handleEdit } = props;
 
   return (
     <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
       <div className="todo-titles d-flex align-items-center">
         <h6 className="font-weight-normal">Item:</h6>
-        <h5 className="mx-2">{title}</h5>
+        <h5 className="mx-2">{itemName}</h5>
         <h6 className="font-weight-normal">Quantity:</h6>
 
         <h5 className="mx-2">{quantity}</h5>
