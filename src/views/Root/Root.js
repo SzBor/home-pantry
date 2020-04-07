@@ -11,13 +11,7 @@ import uuid from 'react-uuid';
 
 class Root extends React.Component {
   state = {
-    items:  JSON.parse(localStorage.getItem("items")),
-    id: uuid(),
-    itemName: '',
-    quantity: '',
-    minAmount: '',
-    editItem: false,
-   
+    items: [],
   };
 
   handleChange = (e) => {
@@ -25,8 +19,10 @@ class Root extends React.Component {
       [e.target.name]: e.target.value,
     });
   };
-  handleSubmit = (e) => {
+
+  handleSubmit = (e, itemData) => {
     e.preventDefault();
+  
 
     const newItem = {
       id: this.state.id,
@@ -45,8 +41,8 @@ class Root extends React.Component {
       minAmount: '',
       editItem: false,
     });
-    localStorage.setItem('list', JSON.stringify(updatedItems));
   };
+
   handleDelete = (id) => {
     const filteredItems = this.state.items.filter((item) => item.id !== id);
 
@@ -69,12 +65,12 @@ class Root extends React.Component {
   };
 
   render() {
-   const contextElements = {
+    const contextElements = {
       ...this.state,
-      handleChange:this.handleChange,
-      handleSubmit:this.handleSubmit,
-      handleDelete:this.handleDelete,
-      handleEdit:this.handleEdit,
+      handleChange: this.handleChange,
+      handleSubmit: this.handleSubmit,
+      handleDelete: this.handleDelete,
+      handleEdit: this.handleEdit,
     };
 
     return (

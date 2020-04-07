@@ -13,6 +13,7 @@ class MainView extends React.Component {
               <div className="col-10 mx-auto col-md-8 mt-4">
                 <Store
                   items={context.items}
+                  id={context.id}
                   handleDelete={context.handleDelete}
                   handleEdit={context.handleEdit}
                 />

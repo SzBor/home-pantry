@@ -13,7 +13,7 @@ const Store = (props) => {
         <ul className="list-group my-5">
           <h3 className="text-capitalize text-center">List of Items</h3>
 
-          {items.map((item) => {
+          {items.map((item, index) => {
             return (
               <StoreItem
                 key={item.id}
