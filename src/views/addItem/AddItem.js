@@ -9,24 +9,28 @@ const AddItem = (props) => {
     <div className="card card-body my-3">
       <form onSubmit={handleSubmit}>
         <div className="input-group">
+       
+         
           <div className="input-group-prepend">
             <div className="input-group-text bg-warning text-black">
-              <i className="fas fa-plus" />
+              <i className="fas fa-utensils" />
             </div>
           </div>
+       
           <input
             type="text"
             name="itemName"
             className="form-control"
-            placeholder="name"
+            placeholder="product"
             value={itemName}
             onChange={handleChange}
           />
+       
           <input
             type="number"
             name="quantity"
             className="form-control"
-            placeholder="quantity PCs"
+            placeholder="quantity in PCs"
             min="1"
             value={quantity}
             onChange={handleChange}
@@ -41,7 +45,7 @@ const AddItem = (props) => {
             onChange={handleChange}
           />
         </div>
-        <ItemButton>Submit</ItemButton>
+        <ItemButton>Add Item</ItemButton>
       </form>
     </div>
   );

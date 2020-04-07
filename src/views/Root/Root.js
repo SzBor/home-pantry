@@ -1,8 +1,6 @@
 import React from 'react';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ShoppingList from '../shoppingList/ShoppingList';
-import AddItemButton from '../../components/button/AddItemButton';
 import Store from '../Store/Store';
 import AddItem from '../addItem/AddItem';
 import uuid from 'react-uuid';
@@ -12,8 +10,8 @@ class Root extends React.Component {
     items: [],
     id: uuid(),
     itemName: '',
-    quantity: 0,
-    minAmount: 1,
+    quantity: '',
+    minAmount: '',
     editItem: false,
   };
 
@@ -38,8 +36,8 @@ class Root extends React.Component {
       items: updatedItems,
       id: uuid(),
       itemName: '',
-      quantity: 0,
-      minAmount: 1,
+      quantity: '',
+      minAmount: '',
       editItem: false,
     });
   };
@@ -60,6 +58,7 @@ class Root extends React.Component {
       quantity: selectedItem.quantity,
       minAmount: selectedItem.minAmount,
       editItem: true,
+      id:id
     });
   };
   render() {
