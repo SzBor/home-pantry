@@ -1,17 +1,29 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
+import "./Navigation.css"
+
 const Navigation = () => (
   <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="#home">Home Pantry</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Shopping List</Nav.Link>
-      </Nav>
-    </Navbar.Collapse>
+    <Navbar.Brand >
+      <NavLink  class="navbar-brand" to="/">
+        Home Pantry
+      </NavLink>
+    </Navbar.Brand>
+
+    <Nav className="mr-auto">
+      <Nav.Link>
+        <NavLink exact className="navbar-link" to="/" activeClassName="navbar-link-active">
+          Home
+        </NavLink>
+      </Nav.Link>
+      <Nav.Link>
+        <NavLink exact className="navbar-link" to="/shoppinglist" activeClassName="navbar-link-active">
+          Shopping List
+        </NavLink>
+      </Nav.Link>
+    </Nav>
   </Navbar>
 );
-
 
 export default Navigation;
